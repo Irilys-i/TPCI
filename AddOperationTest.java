@@ -1,24 +1,23 @@
-package dz.univ.calculatrice;
- 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
- 
-class addOperationTest {
- 
-    private final AddOperation operation = new AddOperation();
- 
+
+public class AddOperationTest {
+
     @Test
-    void shouldAddTwoPositiveNumbers() {
-        assertEquals(7.0, operation.execute(3.0, 4.0));
+    public void testAdditionNominale() {
+        Operation op = new AddOperation();
+        assertEquals(5.0, op.calculate(2.0, 3.0), 0.001, "Test d'addition nominale échoué");
     }
- 
+
     @Test
-    void shouldAddNegativeAndPositiveNumbers() {
-        assertEquals(1.0, operation.execute(-2.0, 3.0));
+    public void testAdditionNegatives() {
+        Operation op = new AddOperation();
+        assertEquals(-5.0, op.calculate(-2.0, -3.0), 0.001, "Test d'addition avec nombres négatifs échoué");
     }
- 
+
     @Test
-    void shouldAddDecimalNumbers() {
-        assertEquals(3.75, operation.execute(1.25, 2.5));
+    public void testAdditionDecimals() {
+        Operation op = new AddOperation();
+        assertEquals(15.5, op.calculate(12.5, 3.0), 0.001, "Test d'addition avec nombres décimaux échoué"); // يتطابق مع مثال التنفيذ المطلوب[span_2](start_span)[span_2](end_span)
     }
 }
